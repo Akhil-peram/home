@@ -8,16 +8,23 @@ window.addEventListener('scroll', () => {
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
+const navOverlay = document.querySelector('.nav-overlay');
 
-navToggle.addEventListener('click', () => {
+function toggleNav() {
     navMenu.classList.toggle('active');
     navToggle.classList.toggle('active');
-});
+    navOverlay.classList.toggle('active');
+}
+
+navToggle.addEventListener('click', toggleNav);
+
+navOverlay.addEventListener('click', toggleNav);
 
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
         navToggle.classList.remove('active');
+        navOverlay.classList.remove('active');
     });
 });
 
